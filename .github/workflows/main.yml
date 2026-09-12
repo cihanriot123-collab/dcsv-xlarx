@@ -1,0 +1,20 @@
+name: Windows Bat Runner
+
+on:
+  workflow_dispatch:
+
+jobs:
+  run-bat:
+    runs-on: windows-latest
+
+    steps:
+      - name: Repodaki Dosyalari Cek
+        uses: actions/checkout@v4
+
+      - name: Chrome Kurulumunu Hazirula
+        run: |
+          choco install googlechrome -y
+
+      - name: BAT Dosyasini Calistir
+        run: |
+          cmd.exe /c run.bat
